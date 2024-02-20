@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <label for="idinstance">ID Instance:</label>
+        <input type="text" id="idinstance" name="idinstance" value="{{ idinstance }}"><br><br>
+        
+        <label for="ApiTokenInstance">Api Token Instance:</label>
+        <input type="text" id="ApiTokenInstance" name="ApiTokenInstance" value="{{ ApiTokenInstance }}"><br><br>
+        
+        <button type="submit" name="getSettings">Get Settings</button>
+        <button type="submit" name="getStateinstance">Get State Instance</button>
+    </form>
+
+    <div class="response-container">
+        {% if response %}
+            <p>Ответ на запрос:</p>
+            <pre>{{ response }}</pre>
+        {% endif %}
+    </div>
+
+    <hr>
+
+    <form action="/" method="post">
+        <label for="phone_number">Номер телефона:</label>
+        <input type="text" id="phone_number" name="phone_number"><br><br>
+        
+        <label for="message">Сообщение:</label>
+        <textarea id="message" name="message"></textarea><br><br>
+        
+        <button type="submit" name="send_message">Send Message</button>
+    </form>
+
+    <hr>
+
+    <form action="/" method="post">
+        <label for="phone_number">Номер телефона:</label>
+        <input type="text" id="phone_number" name="phone_number"><br><br>
+
+        <label for="file_url">URL файла:</label>
+        <input type="text" id="file_url" name="file_url"><br><br>
+        
+        <button type="submit" name="sendFileByUrl">Send File By URL</button>
+    </form>
+</body>
+</html>
